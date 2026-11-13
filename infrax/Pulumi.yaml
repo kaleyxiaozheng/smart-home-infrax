@@ -1,0 +1,7 @@
+name: Smart Home Infrastructure
+description: Pulumi IaC for Proxmox VE - Ubuntu template and k3s cluster
+runtime:
+  name: nodejs
+  options:
+    typescript: true
+main: packages/proxmox/src/index.ts

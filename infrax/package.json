@@ -1,0 +1,22 @@
+{
+  "name": "smart-home-infrax",
+  "version": "0.0.1",
+  "description": "Pulumi IaC for Proxmox VE - Ubuntu template and k3s cluster",
+  "main": "packages/proxmox/src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "preview": "pulumi preview",
+    "up": "pulumi up",
+    "destroy": "pulumi destroy"
+  },
+  "dependencies": {
+    "@muhlba91/pulumi-proxmoxve": "^8.6.0",
+    "@pulumi/pulumi": "^3.140.0",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/mime-types": "^4.0.9",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"  
+  }
+}
