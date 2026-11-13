@@ -1,0 +1,6 @@
+encryptionsalt: v1:KKhQucWtkss=:v1:Hg5gtiepV0mLzUL6:lkZa5eNm7Lp1XleXQzJS2mGmTX2fXA==
+config:
+  Smart-Home-Infrastructure:proxmoxApiToken:
+    secure: v1:+R6qMg1606+AeLPv:Rufn0ZVr4Ojixsyu+7JyBCTrULnaDc0piPWBr2Lk63/CxIjArlRAdZgUVQlbKPNbCQeelw0BLTwNADJ4heR7NWgvU/s=
+  Smart-Home-Infrastructure:ssbPublicKeyPath: /Users/kaleyzheng/.ssh/id_ed25519.pub
+  Smart-Home-Infrastructure:sshPrivatekeyPath: /Users/kaleyzheng/.ssh/id_ed25519

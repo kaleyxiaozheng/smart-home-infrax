@@ -1,11 +1,13 @@
 # Non-secret settings for the `dev` stack.
 # Secrets (API token, SSH key paths) stay in Pulumi config - see Pulumi.dev.yaml.example.
-proxmoxEndpoing: https://192.168.50.100:8006/
+proxmoxEndpoint: https://192.168.50.100:8006/api2/json
 nodeName: pve
-templatename: ubuntu-template
-vmId: 999
-datastore: local-lvm
-cloudImageFileId: local:iso/jammy-server-cloudimg-amd64.img
+templateName: ubuntu-template
+vmId: 100
+datastore: "local-lvm"
+imageDatastore: local
+cloudImageUrl: https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
+cloudImageFileName: noble-server-cloudimg-amd64.img
 diskSizeGb: 32
 memoryMb: 2048
 cpuCores: 2

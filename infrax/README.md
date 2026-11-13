@@ -38,6 +38,12 @@ pulumi config set ssbPublicKeyPath ~/.ssh/id_ed25519.pub
 pulumi config set sshPrivatekeyPath ~/.ssh/id_ed25519
 
 pulumi preview # see the plan
-pulumi up      # confirm with yes
-# 
+pulumi up --stack dev      # confirm with yes
+pulumi destroy --stack dev
+
+# run npm install --registry https://registry.npmjs.org for new changes
+npm install --registry https://registry.npmjs.org
 ```
+## Encapsulate Tailscale to the template
+
+Template is created with template: true and never starts, so nothing inside the disk image can join Tailscale. Every clone inherits the user-data sinnpet and runs it on first boot, which gives each nodes its own Tailscale identity. 

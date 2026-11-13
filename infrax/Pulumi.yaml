@@ -1,4 +1,4 @@
-name: Smart Home Infrastructure
+name: Smart-Home-Infrastructure
 description: Pulumi IaC for Proxmox VE - Ubuntu template and k3s cluster
 runtime:
   name: nodejs

@@ -1,17 +1,19 @@
-import * as fs from "node.fs";
-import * as os from "node.os";
-import * as path from "node.path";
+import * as fs from "fs";
+import * as os from "os";
+import * as path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import * as yaml from "js-yaml";
 
-/** Non-secret values from configs/environments/<stack>.yaml */
+/** Non-secret values from  configs/environments/<stack>.yaml */
 export interface EnvironmentConfig {
   proxmoxEndpoint: string;
   nodeName: string;
   templateName: string;
   vmId: number;
   datastore: string;
-  cloudImageFileId: string;
+  imageDatastore: string;
+  cloudImageUrl: string;
+  cloudImageFileName: string;
   diskSizeGb: number;
   memoryMb: number;
   cpuCores: number;
@@ -26,7 +28,9 @@ const REQUIRED_KEYS: (keyof EnvironmentConfig)[] = [
   "templateName",
   "vmId",
   "datastore",
-  "cloudImageFileId",
+  "imageDatastore",
+  "cloudImageUrl",
+  "cloudImageFileName",
   "diskSizeGb",
   "memoryMb",
   "cpuCores",
@@ -47,7 +51,7 @@ function readTextFile(p: string): string {
 }
 
 function environmentFile(stack: string): string {
-  return path.join(process.cwd(), "configs", "environments", `${stack}.yaml`);
+  return path.join(__dirname, "..", "..", "..", "configs", "environments", `${stack}.yaml`);
 }
 
 export function loadEnvironment(stack: string): EnvironmentConfig {
@@ -85,7 +89,7 @@ export function loadSecrets() {
 
   return {
     proxmoxApiToken: config.requireSecret("proxmoxApiToken"),
-    sshPublickeyPath: readTextFile(sshPublickeyPath),
-    sshPrivatekeyPath: readTextFile(sshPrivatekeyPath),
+    sshPublicKey: readTextFile(sshPublickeyPath),
+    sshPrivateKey: readTextFile(sshPrivatekeyPath),
   };
 }
